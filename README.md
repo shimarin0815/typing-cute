@@ -9,13 +9,6 @@
 **60秒**で単語を打ちまくる、**スタイリッシュ×ちょい可愛い**タイピングゲーム。  
 シンプル構成（HTML/CSS/JSのみ）で、VS Code だけで開発・公開できます。
 
----
-
-## 🎮 デモ
-- 🔗 **Play now:** https://shimarin0815.github.io/typing-cute/
-- 🖼️ スクショ：  
-  ![screenshot](assets/screenshot.png)  
-  ※`assets/screenshot.png` を好きな画像に差し替えてね
 
 ---
 
