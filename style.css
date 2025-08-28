@@ -1,0 +1,126 @@
+:root{
+  --bg1:#f7f5ff;
+  --glass:#ffffffaa;
+  --ink:#222;
+  --muted:#666;
+  --brand:#7c5cff;   /* ビビッド1 */
+  --accent:#ff7cb3;  /* ピンク */
+  --mint:#73e0c5;    /* ミント */
+  --shadow: 0 10px 30px rgba(57, 33, 115, .15);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family:"Plus Jakarta Sans","Nunito","Segoe UI",system-ui,-apple-system,Arial;
+  color:var(--ink);
+  background: var(--bg1);
+  overflow-x:hidden;
+}
+
+.bg-gradient{
+  position:fixed; inset:0; z-index:-1;
+  background:
+    radial-gradient(900px 900px at 10% 10%, #ffd6e7 0, transparent 60%),
+    radial-gradient(900px 900px at 90% 20%, #e2d7ff 0, transparent 60%),
+    radial-gradient(1000px 800px at 70% 90%, #d7fff3 0, transparent 60%);
+  filter:saturate(1.1);
+}
+
+.container{
+  max-width:900px; margin:32px auto; padding:0 16px;
+}
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px; margin-bottom:10px;
+}
+h1{ margin:0; font-size:28px; letter-spacing:.2px; }
+.tag{
+  display:inline-block; margin-left:8px; padding:2px 8px; border-radius:999px;
+  background:linear-gradient(90deg,var(--brand),var(--accent)); color:#fff; font-size:14px;
+}
+
+.controls{ display:flex; gap:12px; align-items:center; }
+.select-wrap{
+  display:flex; gap:8px; align-items:center; padding:8px 12px; border-radius:12px; background:#fff; box-shadow:var(--shadow);
+}
+select{
+  border:none; background:transparent; font-size:14px; outline:none;
+}
+.btn{
+  border:none; padding:10px 16px; border-radius:14px; background:#fff; box-shadow:var(--shadow);
+  cursor:pointer; font-weight:700; transition:transform .05s ease, filter .2s ease;
+}
+.btn:active{ transform:translateY(1px) }
+.btn.primary{
+  background:linear-gradient(90deg,var(--brand),var(--accent));
+  color:#fff;
+}
+
+.hud{
+  display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin:14px 0 22px;
+}
+.stat{
+  background:#fff; border-radius:14px; padding:12px 14px; box-shadow:var(--shadow);
+  display:flex; align-items:baseline; gap:8px; justify-content:center;
+}
+.stat .label{ color:var(--muted); font-size:12px; }
+.stat .value{ font-size:22px; font-weight:800; min-width:2ch; text-align:center; }
+.stat.best{ background:linear-gradient(180deg,#fff, #fff7fd); }
+
+.card.game{
+  background:var(--glass); border-radius:20px; box-shadow:var(--shadow);
+  backdrop-filter: blur(8px);
+  padding:26px; position:relative;
+}
+
+.word-area{
+  min-height:72px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative;
+}
+.word{
+  font-size:40px; font-weight:800; letter-spacing:.5px; user-select:none;
+}
+.word .ok{ color:var(--brand); }
+.word .ng{ color:#ff3b57; text-decoration:underline wavy #ff3b57 2px; }
+.underline{
+  height:4px; width:0; background:linear-gradient(90deg,var(--brand),var(--mint));
+  border-radius:2px; margin:8px auto 0; transition:width .2s ease;
+}
+
+.typebox{
+  width:100%; margin-top:18px; font-size:20px; padding:16px 18px; border-radius:14px;
+  border:2px solid transparent; outline:none;
+  background:#fff; box-shadow:var(--shadow);
+}
+.typebox:focus{ border-color:var(--brand); }
+
+.tips{ margin-top:10px; color:var(--muted); text-align:center; }
+
+.footer{ margin-top:18px; text-align:center; color:var(--muted); font-size:13px; }
+.dot{ display:inline-block; width:8px; height:8px; background:var(--accent); border-radius:50%; margin:0 2px; }
+
+.modal{
+  position:fixed; inset:0; display:grid; place-items:center; background:#00000066;
+}
+.hidden{ display:none; }
+.modal-content{
+  width:min(560px,95vw); background:#fff; border-radius:20px; box-shadow:var(--shadow); padding:24px;
+  text-align:center;
+}
+.result-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:14px 0 18px;
+}
+.result-grid div{
+  background:#faf7ff; border-radius:14px; padding:14px 8px;
+}
+.result-grid span{ display:block; color:var(--muted); font-size:12px; }
+.result-grid strong{ font-size:28px; }
+
+@media (max-width:640px){
+  .hud{ grid-template-columns:repeat(3,1fr); }
+  .result-grid{ grid-template-columns:repeat(2,1fr); }
+  .word{ font-size:32px; }
+}
